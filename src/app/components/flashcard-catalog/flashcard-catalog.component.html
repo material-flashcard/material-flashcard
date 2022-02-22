@@ -1,7 +1,9 @@
 <virtual-scroller #scroll [items]="materials">
-  <div class="virtual__padding--top"></div>
+  <div class="virtual__padding--vertical"></div>
   <div #container>
     <mat-flashcard *ngFor="let mat of scroll.viewPortItems; index as i;" [material]="mat" on-mouseenter="hoverIndex=i" on-mouseleave="hoverIndex=-1" on-click="onFlashcardClick(mat)" [ngStyle]="jumbleStyles[i]"
       [@elevation]="hoverIndex==i?'bringup':'putdown'"></mat-flashcard>
   </div>
+  <div class="virtual__padding--vertical"></div>
+
 </virtual-scroller>
