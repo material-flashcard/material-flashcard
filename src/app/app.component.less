@@ -13,29 +13,29 @@
   right: 0;
 }
 
-.icon__cate {
-  transform: scaleY(-1);
-}
-
-.flashcard__title {
-  font-size: 20px;
-}
-
-.flashcard__logo {
-  width: @icon-diameter;
-  height: @icon-diameter;
-  margin-right: 4px;
-}
-
 .toolbar {
   position: relative;
   z-index: 10;
   height: 56px;
   color: white;
 
+  .flashcard__logo {
+    width: @icon-diameter;
+    height: @icon-diameter;
+    margin-right: 4px;
+  }
+
+  .flashcard__title {
+    font-size: 20px;
+  }
+
   mat-icon {
     fill: white;
     margin-right: 2px;
+  }
+
+  .icon__cate {
+    transform: scaleY(-1);
   }
 
   .toolbar__spacer {
