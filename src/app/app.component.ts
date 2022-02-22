@@ -52,12 +52,20 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/flashcard-logo_filled.svg")
     );
 
+    this.matIconRegistry.addSvgIcon("flashcard-logo_outlined",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/flashcard-logo_outlined.svg")
+    );
+
     this.matIconRegistry.addSvgIcon("catalogue",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/catalogue.svg")
     );
 
     this.matIconRegistry.addSvgIcon("wall",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/wall.svg")
+    );
+
+    this.matIconRegistry.addSvgIcon("angular-solid",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/angular_solid.svg")
     );
 
 

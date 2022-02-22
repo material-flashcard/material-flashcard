@@ -13,11 +13,6 @@
   right: 0;
 }
 
-mat-icon {
-  fill: white;
-  margin-right: 2px;
-}
-
 .icon__cate {
   transform: scaleY(-1);
 }
@@ -38,6 +33,11 @@ mat-icon {
   height: 56px;
   color: white;
 
+  mat-icon {
+    fill: white;
+    margin-right: 2px;
+  }
+
   .toolbar__spacer {
     flex: 1 1 auto;
   }
@@ -55,4 +55,39 @@ mat-icon {
 .flashcard__detail {
   max-width: 480px;
   overflow-x: hidden;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  mat-icon {
+    vertical-align: middle;
+  }
+
+  .footer__element {
+    flex: 1;
+    font-size: 12px;
+  }
+
+  .footer__logo {
+    font-size: 16px;
+
+    .footer__logo_icon {
+      width: 32px;
+      height: 32px;
+      fill: white;
+      margin-right: 1px;
+    }
+  }
+
+  .footer__version {
+    text-align: center;
+  }
+
+  .footer__power {
+    text-align: right;
+    line-height: 24px;
+  }
 }
