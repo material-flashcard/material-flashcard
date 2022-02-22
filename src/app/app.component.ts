@@ -48,26 +48,11 @@ export class AppComponent {
       this.onWidthChange(result);
     });
 
-    this.matIconRegistry.addSvgIcon("flashcard-logo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/flashcard-logo_filled.svg")
-    );
-
-    this.matIconRegistry.addSvgIcon("flashcard-logo_outlined",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/flashcard-logo_outlined.svg")
-    );
-
-    this.matIconRegistry.addSvgIcon("catalogue",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/catalogue.svg")
-    );
-
-    this.matIconRegistry.addSvgIcon("wall",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/wall.svg")
-    );
-
-    this.matIconRegistry.addSvgIcon("angular-solid",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/angular_solid.svg")
-    );
-
+    this.addSvgIcon("flashcard-logo", "../assets/img/flashcard-logo_filled.svg");
+    this.addSvgIcon("flashcard-logo_outlined", "../assets/img/flashcard-logo_outlined.svg");
+    this.addSvgIcon("catalogue", "../assets/img/catalogue.svg");
+    this.addSvgIcon("wall", "../assets/img/wall.svg");
+    this.addSvgIcon("angular-solid", "../assets/img/angular_solid.svg");
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -91,6 +76,12 @@ export class AppComponent {
 
   onCloseDetail() {
     this.drawer.close();
+  }
+
+  private addSvgIcon(iconName: string, iconUrl: string) {
+    this.matIconRegistry.addSvgIcon(iconName,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(iconUrl)
+    );
   }
 
 }
