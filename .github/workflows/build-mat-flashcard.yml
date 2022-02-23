@@ -1,0 +1,22 @@
+name: build-mat-flashcard
+on:
+  push:
+    branches: [master]
+jobs:
+  ng-build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: npm install
+        run: npm install
+
+      - name: ng build
+        run: ng build
