@@ -12,13 +12,16 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: setup Node 14
+      - name: setup node 14
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
       - name: npm install
         run: npm install
+
+      - name: install angular cli
+        run: npm install -g @angular/cli
 
       - name: ng build
         run: ng build
