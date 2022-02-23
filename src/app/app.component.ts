@@ -1,3 +1,5 @@
+import packageJson from '../../package.json';
+
 import { Component, ViewChild, OnInit, HostBinding } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -33,6 +35,8 @@ export class AppComponent {
   title = 'material-flashcard';
 
   largeScreen: boolean;
+
+  version: string = packageJson.version;
 
   @HostBinding('class')
   mediaClass: string;
