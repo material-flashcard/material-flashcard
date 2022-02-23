@@ -2,6 +2,8 @@ name: build-mat-flashcard
 on:
   push:
     branches: [master]
+  workflow_dispatch:
+    branches: [master]
 jobs:
   ng-build:
     runs-on: ubuntu-latest
