@@ -32,17 +32,14 @@ jobs:
 
       - name: Commit to material-flashcard.github.io
         run: |
-          cd ./dist
+          cd ./dist/material-flashcard
           git init -b main
-          echo git init completed
           git config --local user.name $USER_NAME
-          echo git config user.name completed
           git config --local user.email $USER_EMAIL
-          echo git config user.email completed
           echo local Git repository config completed
           git status
           git remote add origin https://$TOKEN_COMMIT@github.com/material-flashcard/material-flashcard.github.io.git
           git checkout -b main
           git add --all
-          git commit -m "Deploy to Github pages"
+          git commit -m "Deploy to Github pages by build-mat-flashcard"
           git push origin main -f
