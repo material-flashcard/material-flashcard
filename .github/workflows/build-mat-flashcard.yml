@@ -5,9 +5,9 @@ env:
   USER_EMAIL: ${{secrets.USER_EMAIL}}
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
-    branches: [master]
+    branches: [main]
 jobs:
   ng-build:
     runs-on: ubuntu-latest
@@ -34,9 +34,10 @@ jobs:
         run: |
           cd ./dist
           git init -b main
+          echo git init completed
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
-          echo local Git repository setup completed
+          echo local Git repository config completed
           git status
           git remote add origin https://$TOKEN_COMMIT@github.com/material-flashcard/material-flashcard.github.io.git
           git checkout -b main
