@@ -1,8 +1,8 @@
 name: build-mat-flashcard
 env:
-  TOKEN_COMMIT: ${{secrets.TOKEN_COMMIT}}
+  TOKEN_COMMIT: ${{ secrets.TOKEN_COMMIT }}
   USER_NAME: mrbrique
-  USER_EMAIL: ${{secrets.USER_EMAIL}}
+  USER_EMAIL: ${{ secrets.USER_EMAIL }}
 on:
   push:
     branches: [main]
