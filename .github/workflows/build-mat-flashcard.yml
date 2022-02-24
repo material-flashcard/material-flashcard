@@ -3,7 +3,6 @@ env:
   TOKEN_COMMIT: ${{ secrets.TOKEN_COMMIT }}
   USER_NAME: mrbrique
   USER_EMAIL: ${{ secrets.USER_EMAIL }}
-  DIST_PATH: ./gh-pages/
 on:
   push:
     branches: [main]
@@ -17,12 +16,6 @@ jobs:
       - name: Checkout material-flashacard
         uses: actions/checkout@v2
 
-      - name: Checkout material-flashcard.github.io
-        uses: actions/checkout@v2
-        with:
-          repository: 'material-flashcard/material-flashcard.github.io'
-          path: $DIST_PATH
-
       - name: Setup node 14
         uses: actions/setup-node@v2
         with:
@@ -34,18 +27,19 @@ jobs:
       - name: Install @angular/cli
         run: npm install -g @angular/cli
 
-      - name: Build material-flashacard
+      - name: Build angular app
         run: ng build
 
       - name: Commit to material-flashcard.github.io
         run: |
-          cp -a ./dist/material-flashcard/. $DIST_PATH
-          cd $DIST_PATH
-          ls -l
+          cd ./dist/material-flashcard
+          git init -b main
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
-          echo local Git repository config completed          
-          git add --all
+          echo local Git repository config completed
           git status
+          git remote add origin https://$TOKEN_COMMIT@github.com/material-flashcard/material-flashcard.github.io.git
+          git checkout -b main
+          git add --all
           git commit -m "Deploy to Github pages by build-mat-flashcard"
           git push origin main -f
