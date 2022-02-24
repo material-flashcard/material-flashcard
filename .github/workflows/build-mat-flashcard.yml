@@ -1,4 +1,8 @@
 name: build-mat-flashcard
+env:
+  TOKEN_COMMIT: ${{secrets.TOKEN_COMMIT}}
+  USER_NAME: mrbrique
+  USER_EMAIL: ${{secrets.USER_EMAIL}}
 on:
   push:
     branches: [master]
@@ -9,19 +13,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: checkout
+      - name: Checkout material-flashacard
         uses: actions/checkout@v2
 
-      - name: setup node 14
+      - name: Setup node 14
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: npm install
+      - name: Install npm package
         run: npm install
 
-      - name: install angular cli
+      - name: Install @angular/cli
         run: npm install -g @angular/cli
 
-      - name: ng build
+      - name: Build angular app
         run: ng build
+
+      - name: Commit to material-flashcard.github.io
+        run: |
+          cd ./dist
+          git init
+          git config --local user.name $USER_NAME
+          git config --local user.email $USER_EMAIL
+          git status
+          git remote add origin https://$TOKEN_COMMIT@github.com/material-flashcard/material-flashcard.github.io.git
+          git checkout -b main
+          git add --all
+          git commit -m "Deploy to Github pages"
+          git push origin main -f
