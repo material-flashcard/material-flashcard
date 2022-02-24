@@ -41,11 +41,11 @@ jobs:
         run: |
           cp -a ./dist/material-flashcard/. $DIST_PATH
           cd $DIST_PATH
+          ls -l
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
-          echo local Git repository config completed
-          git status
-          git checkout -b main
+          echo local Git repository config completed          
           git add --all
+          git status
           git commit -m "Deploy to Github pages by build-mat-flashcard"
           git push origin main -f
