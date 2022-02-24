@@ -37,6 +37,7 @@ jobs:
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
           git status
+          echo local Git repository setup completed
           git remote add origin https://$TOKEN_COMMIT@github.com/material-flashcard/material-flashcard.github.io.git
           git checkout -b main
           git add --all
