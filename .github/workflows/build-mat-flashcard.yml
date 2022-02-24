@@ -33,7 +33,7 @@ jobs:
       - name: Commit to material-flashcard.github.io
         run: |
           cd ./dist
-          git init
+          git init -b main
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
           echo local Git repository setup completed
