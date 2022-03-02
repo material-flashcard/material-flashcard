@@ -15,6 +15,8 @@ ng build
 ### with docker
 `docker-compose up`
 
+## Credit
+The icons used in the project is provided by [google/material-design-icons](https://github.com/google/material-design-icons)
 
 ## License
 GNU General Public License v3.0
