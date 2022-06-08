@@ -27,17 +27,11 @@ export class HandComponent implements OnInit {
   }
 
   ngOnInit() {
-    const item = this.route.snapshot.paramMap.get('item')!;
-    let index = parseInt(item);
-    if (isNaN(index)) {
-      this.codepointService.getCodepoint(item).subscribe(
-        cp => this.material = new Material(cp)
-      );
-    } else {
-      this.codepointService.getIndexedCodepoint(index).subscribe(
-        cp => this.material = new Material(cp)
-      );
-    }
+    const name = this.route.snapshot.paramMap.get('item')!;
+
+    this.codepointService.getCodepoint(name).subscribe(
+      cp => this.material = new Material(cp)
+    );
 
 
   }

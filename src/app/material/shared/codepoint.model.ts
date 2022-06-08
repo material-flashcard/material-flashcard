@@ -11,7 +11,7 @@ export class Codepoint {
     let cp: Codepoint = new Codepoint();
     cp.name = json.name;
     cp.code = json.codepoint;
-    cp.index = json.index;
+    cp.index = parseInt(json.index);
 
     return cp;
   }

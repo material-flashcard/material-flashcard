@@ -15,9 +15,7 @@
 @card-border-radius: 0.125in; /*
  * card index style
  */
-@card-index-diameter: 0.5in;
-@card-index-offset: @card-index-diameter / 2;
-@card-index-wrap-width: (@card-index-diameter - @card-index-offset); /*
+@card-index-diameter: 0.25in; /*
  * card paper style
  */
 
@@ -53,7 +51,6 @@
 :host {
   display: inline-block;
   border-radius: @card-border-radius;
-  overflow: hidden;
 }
 
 .flashcard {
@@ -74,6 +71,7 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    border-radius: @card-border-radius;
 
     .flashcard__paper {
       box-sizing: border-box;
@@ -87,20 +85,15 @@
         width: @card-index-diameter;
         height: @card-index-diameter;
         position: absolute;
-        top: -(@card-index-offset);
-        right: -(@card-index-offset);
-        border-radius: @card-index-diameter;
+        top: 0;
+        right: 0;
+        border-top-right-radius: @card-border-radius;
+        border-bottom-left-radius: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .flashcard__index_wrap {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: @card-index-wrap-width;
-          height: @card-index-wrap-width;
-          text-align: center;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .flashcard__index_anchor {
           font-size: 14pt;
         }
       }
@@ -144,8 +137,6 @@
 }
 
 .flashcard-color (@color) {
-  background-color: @color;
-
   .flashcard__border {
     background-color: @color;
     border: @card-border-width solid @color;
